@@ -1,0 +1,31 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: ffmpeg
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: ffmpeg
+  template:
+    metadata:
+      labels:
+        app: ffmpeg
+    spec:
+      containers:
+      - name: ffmpeg
+        image: ghcr.io/scalable-23t1-p2-toktik/ffmpeg-worker/scalable-p2-ffmpeg-worker:latest
+        env:
+        - name: REDIS_HOST
+          value: "redis-service.default.svc"
+        - name: REDIS_PORT
+          value: "6379"
+        - name: AWS_ACCESS_KEY_ID
+          value: "AKIAUBKTRWRI7PJUFDQV"
+        - name: AWS_SECRET_ACCESS_KEY
+          value: "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"
+        - name: AWS_REGION
+          value: "ap-southeast-2"
+      imagePullSecrets:
+      - name: regcred
+
