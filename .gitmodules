@@ -1,0 +1,9 @@
+[submodule "ffmpeg-worker"]
+	path = ffmpeg-worker
+	url = git@github.com:scalable-23t1-p2-toktik/ffmpeg-worker.git
+[submodule "backend"]
+	path = backend
+	url = git@github.com:scalable-23t1-p2-toktik/backend.git
+[submodule "frontend"]
+	path = frontend
+	url = git@github.com:scalable-23t1-p2-toktik/frontend.git
