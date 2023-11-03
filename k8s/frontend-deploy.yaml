@@ -17,5 +17,11 @@ spec:
       containers:
       - name: frontend
         image: ghcr.io/scalable-23t1-p2-toktik/frontend/scalable-p2-frontend:latest
+        imagePullPolicy: Always
+        env:
+          - name: DATABASE_URL
+            value: "postgres://postgres:password@postgres-service.default.svc:5433/toktik-database"
+          - name: NEXTAUTH_SECRET
+            value: "toktik"
       imagePullSecrets:
       - name: regcred

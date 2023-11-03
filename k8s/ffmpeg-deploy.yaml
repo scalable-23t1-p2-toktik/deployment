@@ -15,6 +15,7 @@ spec:
       containers:
       - name: ffmpeg
         image: ghcr.io/scalable-23t1-p2-toktik/ffmpeg-worker/scalable-p2-ffmpeg-worker:latest
+        imagePullPolicy: Always
         env:
         - name: REDIS_HOST
           value: "redis-service.default.svc"

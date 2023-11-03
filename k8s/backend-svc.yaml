@@ -1,12 +1,12 @@
 kind: Service
 apiVersion: v1
 metadata:
-  name: scalable-backend
+  name: backend
 spec:
   selector:
-    app: scalable-backend
+    app: backend
   type:  ClusterIP
   ports:
   - name:  http
-    port:  80
+    port:  8080
     targetPort:  8080

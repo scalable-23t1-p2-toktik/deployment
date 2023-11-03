@@ -1,20 +1,20 @@
 apiVersion: networking.k8s.io/v1
 kind: Ingress
 metadata:
-  name: scalable-ingress
+  name: scalable-p2-ingress
   annotations:
     ingress.kubernetes.io/ssl-redirect: "false"
 spec:
   rules:
   - http:
       paths:
-      - path: /api
+      - path: /backend
         pathType: Prefix
         backend:
           service:
             name: backend
             port:
-              number: 80
+              number: 8080
       - path: /
         pathType: Prefix
         backend:
