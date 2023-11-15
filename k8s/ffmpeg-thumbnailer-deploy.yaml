@@ -1,0 +1,29 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: ffmpeg-thumbnailer
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: ffmpeg-thumbnailer
+  template:
+    metadata:
+      labels:
+        app: ffmpeg-thumbnailer
+    spec:
+      containers:
+      - name: ffmpeg-thumbnailer
+        image: ghcr.io/scalable-23t1-p2-toktik/ffmpeg-worker/scalable-p2-ffmpeg-thumbnailer:latest
+        imagePullPolicy: Always
+        env:
+        - name: REDIS_HOST
+          value: redis-service
+        - name: REDIS_PORT
+          value: "6379"
+        envFrom:
+          - secretRef:
+              name: ffmpeg-secrets
+      imagePullSecrets:
+      - name: regcred
+

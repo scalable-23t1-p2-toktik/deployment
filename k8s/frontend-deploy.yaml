@@ -18,10 +18,14 @@ spec:
       - name: frontend
         image: ghcr.io/scalable-23t1-p2-toktik/frontend/scalable-p2-frontend:latest
         imagePullPolicy: Always
+        ports:
+        - containerPort: 3000
         env:
           - name: DATABASE_URL
-            value: "postgres://postgres:password@postgres-service.default.svc:5433/toktik-database"
+            value: "postgres://postgres:password@postgres-service.default.svc:5432/toktik-database"
           - name: NEXTAUTH_SECRET
             value: "toktik"
+          - name: BACKEND_HOSTNAME
+            value: backend-service.default.svc
       imagePullSecrets:
       - name: regcred

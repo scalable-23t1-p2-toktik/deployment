@@ -3,7 +3,7 @@ kind: Deployment
 metadata:
   name: backend
 spec:
-  replicas: 3
+  replicas: 1
   selector:
     matchLabels:
       app: backend
@@ -16,20 +16,23 @@ spec:
       - name: backend
         image: ghcr.io/scalable-23t1-p2-toktik/backend/scalable-p2-backend:latest
         imagePullPolicy: Always
+        ports:
+        - containerPort: 8080
         env:
         - name: REDIS_HOST
-          value: "redis-service.default.svc"
+          value: redis-service.default.svc
         - name: REDIS_PORT
           value: "6379"
         - name: BACKEND_DB_IP
-          value: "postgres-service.default.svc"
+          value: postgres-service.default.svc
         - name: BACKEND_DB_PORT
-          value: "5433"
+          value: "5432"
         - name: BACKEND_DB_NAME
           value: "toktik-database"
         - name: BACKEND_DB_USERNAME
           value: "postgres"
         - name: BACKEND_DB_PASSWORD
           value: "password"
+      
       imagePullSecrets:
       - name: regcred

@@ -23,7 +23,7 @@ spec:
         - name: POSTGRES_PASSWORD
           value: "password"
         - name: PG_PORT
-          value: "5433"
+          value: "5432"
         volumeMounts:
         - name: postgres-pv
           mountPath: "/var/lib/mysql"
