@@ -16,6 +16,9 @@ spec:
       - name: ffmpeg-thumbnailer
         image: ghcr.io/scalable-23t1-p2-toktik/ffmpeg-worker/scalable-p2-ffmpeg-thumbnailer:latest
         imagePullPolicy: Always
+        volumeMounts:
+        - name: ffmpeg-storage
+          mountPath: /pv
         env:
         - name: REDIS_HOST
           value: redis-service
@@ -26,4 +29,8 @@ spec:
               name: ffmpeg-secrets
       imagePullSecrets:
       - name: regcred
+      volumes:
+      - name: ffmpeg-storage
+        persistentVolumeClaim:
+          claimName: ffmpeg-pvc
 

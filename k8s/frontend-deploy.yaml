@@ -26,6 +26,8 @@ spec:
           - name: NEXTAUTH_SECRET
             value: "toktik"
           - name: BACKEND_HOSTNAME
-            value: backend-service.default.svc
+            value: backend.default.svc
+          # - name: NEXTAUTH_URL
+          #   value: frontend.default.svc
       imagePullSecrets:
       - name: regcred
