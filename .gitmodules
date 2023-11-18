@@ -7,3 +7,6 @@
 [submodule "frontend"]
 	path = frontend
 	url = git@github.com:scalable-23t1-p2-toktik/frontend.git
+[submodule "notification-service"]
+	path = notification-service
+	url = git@github.com:scalable-23t1-p2-toktik/notification-service.git
