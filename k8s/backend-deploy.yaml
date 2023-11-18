@@ -3,7 +3,7 @@ kind: Deployment
 metadata:
   name: backend
 spec:
-  replicas: 1
+  replicas: 3
   selector:
     matchLabels:
       app: backend
@@ -33,6 +33,8 @@ spec:
           value: "postgres"
         - name: BACKEND_DB_PASSWORD
           value: "password"
+        - name: SOCKET_IO_HOSTNAME
+          value: notification.default.svc
         - name: AWS_REGION
           value: ap-southeast-2
         - name: AWS_ACCESS_KEY_ID

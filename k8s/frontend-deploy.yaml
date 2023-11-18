@@ -16,7 +16,7 @@ spec:
     spec:
       containers:
       - name: frontend
-        image: ghcr.io/scalable-23t1-p2-toktik/frontend/scalable-p2-frontend:latest
+        image: ghcr.io/scalable-23t1-p2-toktik/frontend/scalable-p2-frontend:999a4c2
         imagePullPolicy: Always
         ports:
         - containerPort: 3000
@@ -27,6 +27,8 @@ spec:
             value: "toktik"
           - name: BACKEND_HOSTNAME
             value: backend.default.svc
+          - name: SOCKET_IO_HOSTNAME
+            value: notification.default.svc
           # - name: NEXTAUTH_URL
           #   value: frontend.default.svc
       imagePullSecrets:
