@@ -12,6 +12,10 @@ spec:
       labels:
         app: backend
     spec:
+      initContainers:
+      - name: wait-for-frontend
+        image: busybox
+        command: ['sh', '-c', 'sleep 60']
       containers:
       - name: backend
         image: ghcr.io/scalable-23t1-p2-toktik/backend/scalable-p2-backend:latest

@@ -16,7 +16,7 @@ spec:
     spec:
       containers:
       - name: frontend
-        image: ghcr.io/scalable-23t1-p2-toktik/frontend/scalable-p2-frontend:999a4c2
+        image: ghcr.io/scalable-23t1-p2-toktik/frontend/scalable-p2-frontend:latest
         imagePullPolicy: Always
         ports:
         - containerPort: 3000
