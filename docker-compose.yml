@@ -38,6 +38,9 @@ services:
       - BACKEND_DB_IP=p2-db
       - REDIS_HOST=redis
       - REDIS_PORT=6379
+      - AWS_ACCESS_KEY_ID=AKIAUBKTRWRI7PJUFDQV
+      - AWS_SECRET_ACCESS_KEY=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
+      - AWS_REGION=ap-southeast-2
     depends_on:
       - p2-db
       - redis
